@@ -7,6 +7,10 @@ final class Exercise {
   
   // An array to keep track of how often random numbers are picked
   float[] randomCounts = new float[20];
+  
+  // Ex1_7: Perlin space offsets
+  float xOff = 0;
+  float yOff = 10000;
 
   void update() {
     // Squiggly line that follows the mouse
@@ -16,7 +20,10 @@ final class Exercise {
     //ex1_4();
     
     // Bar chart with montecarlo distribution
-    ex1_6();
+    //ex1_6();
+    
+    // Perlin noise walker
+    ex1_7();
   }
   
   void display() {
@@ -69,6 +76,17 @@ final class Exercise {
     for (int x = 0; x < randomCounts.length; x++) {
       rect(x*w, height-randomCounts[x], w-1, randomCounts[x]);
     }
+  }
+  
+  void ex1_7() {
+    int x = int(map(noise(xOff), 0,1, 0,width));
+    int y = int(map(noise(yOff), 0,1, 0,height));
+    
+    walker.loc.x = x;
+    walker.loc.y = y;
+    
+    xOff += 0.01;
+    yOff += 0.01;
   }
   
   // Chance of moving right: 40%

@@ -1,14 +1,15 @@
 final class Walker {
   
-  private PVector loc;
+  public PVector loc;
 
   Walker(int width, int height) {
-    loc = new PVector(width / 2, height / 2); //<>//
+    loc = new PVector(width / 2, height / 2);
   }
   
   void display() {
-    stroke(0);
+    //stroke(0);
     point(loc.x, loc.y);
+    //ellipse(loc.x,loc.y,16,16);
   }
   
   void step(int x, int y) {

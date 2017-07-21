@@ -8,6 +8,7 @@ final class Example {
      //ex1_4();
   }
   
+  // Creates normal distrubtion (Gaussion) of dots along x-axis
   void ex1_4() {
     float num = (float) generator.nextGaussian();
     float sd = width/6;
@@ -20,6 +21,7 @@ final class Example {
     ellipse(x, 180, 16, 16);
   }
   
+  // Creates circles at the mouse position
   void first_intro() {
     if (mousePressed) {
       fill(0);
