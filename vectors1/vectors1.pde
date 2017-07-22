@@ -8,12 +8,8 @@ void setup() {
 void draw() {
   background(255);
   
-  //example.showCircleBounce();
-  //example.showWalker();
-  //example.ex1_3();
-  //example.ex1_4();
-  
-  exercise.ex1_8();
+  example.display();
+  exercise.display();
 }
 
 void keyPressed() {  
@@ -30,4 +26,8 @@ void keyPressed() {
       exercise.pressedRight();
     }
   }
+}
+
+void mousePressed() {
+  exercise.accTo(mouseX,mouseY);
 }

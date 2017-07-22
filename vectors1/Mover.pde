@@ -18,6 +18,8 @@ final class Mover {
   }
   
   void update() {
+    //acc = PVector.random2D();
+    //acc.mult(random(2));
     vel.add(acc);
     vel.limit(topSpeed);
     loc.add(vel);

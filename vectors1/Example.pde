@@ -5,6 +5,13 @@ final class Example {
   Walker walker = new Walker();
   Mover mover = new Mover();
   
+  void display() {
+    //showCircleBounce();
+    //showWalker();
+    //ex1_3();
+    //ex1_4();
+  }
+  
   void showCircleBounce() {
     loc.add(vel);
   
