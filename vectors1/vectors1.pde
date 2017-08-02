@@ -2,7 +2,7 @@ Example example = new Example();
 Exercise exercise = new Exercise();
 
 void setup() {
-  size(640, 360);
+  size(800, 600);
 }
 
 void draw() {
@@ -29,5 +29,5 @@ void keyPressed() {
 }
 
 void mousePressed() {
-  exercise.accTo(mouseX,mouseY);
+  //exercise.accTo(mouseX,mouseY);
 }

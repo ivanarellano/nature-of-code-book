@@ -6,10 +6,10 @@ final class Mover {
   public float topSpeed;
   
   Mover() {
-    loc = new PVector(width/2, height/2);
+    loc = new PVector(random(width), random(height));
     vel = new PVector();
     acc = new PVector();
-    topSpeed = 10;
+    topSpeed = 5;
   }
   
   Mover(PVector location, PVector velocity) {
@@ -28,7 +28,7 @@ final class Mover {
   void display() {
     stroke(0);
     fill(175);
-    ellipse(loc.x, loc.y, 16, 16);
+    ellipse(loc.x, loc.y, 64, 64);
   }
   
   void checkEdges() {
