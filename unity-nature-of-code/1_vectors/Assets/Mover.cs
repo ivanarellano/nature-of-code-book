@@ -8,8 +8,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private Camera cam;
 
     private Vector3 meshExtentsToScreen;
-	private Vector3 velocity = new Vector3();
-	private Vector3 acceleration = new Vector3(1, 1, 0);
+    private Vector3 velocity = new Vector3();
+    private Vector3 acceleration = new Vector3(1, 1, 0);
 
     public float maxSpeed = 10.0f;
 
