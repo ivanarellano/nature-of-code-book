@@ -18,7 +18,7 @@ namespace Exercise
             _lineRenderer = GetComponent<LineRenderer>();
         }
 
-        private void Start()
+        private void Update()
         {
             CreateCircle();
         }

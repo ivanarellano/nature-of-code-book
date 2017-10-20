@@ -35,7 +35,7 @@ namespace Exercise
                 _x = (_x + 1) % verts.Length;
                 _frequency = (_frequency + (frequency * Time.deltaTime)) % (Mathf.PI * 2);
 
-                float y = amplitude * Mathf.Sin(_x + _frequency);
+                float y = amplitude * Mathf.Sin((_x * wavelength) + _frequency);
 
                 verts[_lineIndex] = new Vector3(_x, y, 0.0f);
             }
