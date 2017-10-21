@@ -11,7 +11,8 @@ public class ColorGrid2 : MonoBehaviour
         Random,
         Checkerboard,
         VerticalStripe,
-        HorizontalStripe
+        HorizontalStripe,
+        Radial
     }
 
     [SerializeField] private GameObject _prefab;
@@ -23,6 +24,7 @@ public class ColorGrid2 : MonoBehaviour
 
     private float _inverseColumnLength;
     private float _inverseRowLength;
+    private float _inverseMaxDistanceToCenter;
 
     private void Update()
     {
@@ -31,20 +33,29 @@ public class ColorGrid2 : MonoBehaviour
 
     private void OnValidate()
     {
-        _columns = Mathf.Clamp(_columns, 0, 9999);
-        _rows = Mathf.Clamp(_rows, 0, 9999);
+        /// Validation
+        _columns = Mathf.Clamp(_columns, 0, 64);
+        _rows = Mathf.Clamp(_rows, 0, 64);
+        _innerMargin = Mathf.Clamp(_innerMargin, 0, 9999);
+
+        _inverseColumnLength = 1.0f / (_columns - 1);
+        _inverseRowLength = 1.0f / (_rows - 1);
+
+        if (_colorPattern == ColorPattern.Radial)
+        {
+            float a = (_columns - 1) / 2.0f;
+            float b = (_rows - 1) / 2.0f;
+            _inverseMaxDistanceToCenter = 1.0f / Mathf.Sqrt((a * a) + (b * b));
+        }
     }
 
     private void Initialize()
     {
-        /// TODO: Pool objects
+        /// FIXME: Pool objects
         for (int i = 0; i < _origin.childCount; i++)
         {
             Destroy(_origin.GetChild(i).gameObject);
         }
-
-        _inverseColumnLength = 1.0f / (_columns - 1);
-        _inverseRowLength = 1.0f / (_rows - 1);
 
         for (int x = 0; x < _columns; x++)
         {
@@ -85,6 +96,9 @@ public class ColorGrid2 : MonoBehaviour
                     case ColorPattern.Checkerboard:
                         CheckerboardColor(obj, x, z);
                         break;
+                    case ColorPattern.Radial:
+                        RadialGradientColor(obj, x, z);
+                        break;
                 }
             }
         }
@@ -122,6 +136,15 @@ public class ColorGrid2 : MonoBehaviour
         {
             StripeColor(obj, rowLoc + 1);
         }
+    }
+
+    private void RadialGradientColor(GameObject obj, int columnLoc, int rowLoc)
+    {
+        float a = (_columns - 1) / 2.0f - columnLoc;
+        float b = (_rows - 1) / 2.0f - rowLoc;
+        float colorDist = Mathf.Sqrt((a * a) + (b * b)) * _inverseMaxDistanceToCenter;
+
+        TintPrefab(obj, new Color(colorDist, colorDist, colorDist));
     }
 
     private void TintPrefab(GameObject obj, Color color)

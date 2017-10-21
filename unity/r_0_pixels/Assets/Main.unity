@@ -169,10 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 1098186994546030, guid: 71a897b18e7bf0249a5f9949776bfbc7, type: 2}
   _origin: {fileID: 315472873}
-  _columns: 8
-  _rows: 4
-  _innerMargin: 0.5
-  _colorPattern: 3
+  _columns: 32
+  _rows: 32
+  _innerMargin: 0
+  _colorPattern: 6
 --- !u!4 &1022499505
 Transform:
   m_ObjectHideFlags: 0

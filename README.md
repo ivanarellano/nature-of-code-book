@@ -5,3 +5,5 @@ This repository contains exercises loosely based on the [Nature of Code](http://
 ![Circles and Spirals](https://github.com/ivanarellano/nature-of-code-book/blob/master/unity/r_1_circles/circle_spiral.gif?raw=true)
 
 ![Oscillation](https://github.com/ivanarellano/nature-of-code-book/blob/master/unity/r_1_circles/sin_wave.gif?raw=true)
+
+![Grid Patterns](https://github.com/ivanarellano/nature-of-code-book/blob/master/unity/r_0_pixels/grid_patterns.gif?raw=true)
